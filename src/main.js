@@ -1,5 +1,9 @@
 import Vue from 'vue'
+
+import './index.less'
+
 import App from './App.vue'
+
 
 Vue.config.productionTip = false
 
