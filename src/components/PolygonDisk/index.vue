@@ -8,13 +8,13 @@
         <polygon id="innerPolygon" :points="genInnerPolygonStr()" />
         <polygon id="outerPolygon" :points="genOuterPolygonStr()" />
         <clipPath id="innerPolygonClip">
-          <use href="#innerPolygon" />
+          <use href="#innerPolygon" xlink:href="#innerPolygon" />
         </clipPath>
         <clipPath id="outerPolygonClip">
-          <use href="#outerPolygon" />
+          <use href="#outerPolygon" xlink:href="#outerPolygon" />
         </clipPath>
       </defs>
-      <use href="#outerPolygon" fill="#555" />
+      <use href="#outerPolygon" xlink:href="#outerPolygon" fill="#555" />
       <ProgressFan />
       <DiskCover />
     </svg>
