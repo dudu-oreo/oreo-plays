@@ -1,7 +1,7 @@
 <template>
 <image
   class="disk-cover-image"
-  xlink:href="../../assets/test.jpg"
+  xlink:href="../../assets/oreo.jpg"
   :width="SVG_SIZE" :height="SVG_SIZE"
 />
 </template>
