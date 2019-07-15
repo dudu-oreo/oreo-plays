@@ -21,10 +21,11 @@ export default {
 
 
 <style scoped lang="less">
-@import './style-vars.less';
+@bar-height: 72px;
 
 .top-bar {
-  position: relative;
   height: @bar-height;
+  display: flex;
+  justify-content: space-between;
 }
 </style>

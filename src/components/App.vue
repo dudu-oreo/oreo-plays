@@ -4,14 +4,16 @@
     <PolygonDisk />
     <TrackInfo title="Wake Me Up When September Ends" artist="直火帮 Straight Fire Gang" />
     <PlayCtrlBar />
+    <ResponsiveWatcher />
   </div>
 </template>
 
 <script>
-import PolygonDisk from './components/PolygonDisk/index.vue'
-import TopBar from './components/TopBar/index.vue'
-import TrackInfo from './components/TrackInfo/index.vue'
-import PlayCtrlBar from './components/PlayCtrlBar/index.vue'
+import PolygonDisk from './PolygonDisk/index.vue'
+import TopBar from './TopBar/index.vue'
+import TrackInfo from './TrackInfo/index.vue'
+import PlayCtrlBar from './PlayCtrlBar/index.vue'
+import ResponsiveWatcher from './ResponsiveWatcher.vue'
 
 export default {
   name: 'app',
@@ -20,14 +22,17 @@ export default {
     TopBar,
     TrackInfo,
     PlayCtrlBar,
+    ResponsiveWatcher,
   },
 }
 </script>
 
 <style lang="less">
 #app {
-  max-width: 540px;
+  max-width: 420px;
+  min-width: 300px;
   height: 100%;
+  margin: auto;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

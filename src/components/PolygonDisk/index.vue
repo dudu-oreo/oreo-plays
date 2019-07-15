@@ -1,5 +1,5 @@
 <template>
-  <div class="polygon-disk">
+  <div class="polygon-disk" :style="getResponsiveStyle()">
     <svg
       :viewBox="`0 0 ${SVG_SIZE} ${SVG_SIZE}`"
       width="100%"
@@ -23,6 +23,10 @@
 
 
 <script>
+import { mapState } from 'vuex'
+
+import { getTopMarginOfSection } from '../../utils/responsive'
+
 import {
   SVG_SIZE, SVG_CENTER,
   POLYGON_OUTER_R, POLYGON_INNER_R, POLYGON_ROTATION
@@ -37,7 +41,14 @@ export default {
       SVG_SIZE,
     }
   },
+  computed: mapState({
+    appWidth: state => state.responsiveUI.appWidth,
+    appHeight: state => state.responsiveUI.appHeight,
+  }),
   methods: {
+    getResponsiveStyle() {
+      return `margin-top: ${getTopMarginOfSection(this.appWidth, this.appHeight, 0.2)}px;`
+    },
     genPolygonStr: function(r) {
       const points = []
       for (let i = 0; i < 7; i++) {

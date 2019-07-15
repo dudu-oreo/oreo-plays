@@ -44,13 +44,8 @@ export default {
 
 
 <style scoped lang="less">
-@import './style-vars.less';
-
 .volumn-disp {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 24px 22px;
-  height: @bar-height;
+  padding: 15px 9px;
+  margin: 9px 13px;
 }
 </style>

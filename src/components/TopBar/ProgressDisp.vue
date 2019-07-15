@@ -14,17 +14,11 @@ export default {
 
 
 <style scoped lang="less">
-@import './style-vars.less';
-
 @time-text-height: 16px;
-@progress-disp-padding-vertical: @bar-height / 2 - @time-text-height;
 
 .progress-disp {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: @bar-height;
-  padding: @progress-disp-padding-vertical 24px;
+  padding: 8px 9px;
+  margin: 12px 15px;
 }
 
 .time-text {
@@ -33,7 +27,6 @@ export default {
   line-height: @time-text-height;
   font-family: 'Courier New';
   font-size: 14px;
-  text-align: center;
   user-select: none;
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="track-info">
+  <div class="track-info" :style="getResponsiveStyle()">
     <WidthLimitedContent
       :height="32"
       :padding="50"
@@ -21,6 +21,10 @@
 
 
 <script>
+import { mapState } from 'vuex'
+
+import { getTopMarginOfSection } from '../../utils/responsive'
+
 import WidthLimitedContent from './WidthLimitedContent'
 
 export default {
@@ -35,16 +39,24 @@ export default {
       default: '未知艺术家',
     },
   },
+  computed: mapState({
+    appWidth: state => state.responsiveUI.appWidth,
+    appHeight: state => state.responsiveUI.appHeight,
+  }),
   components: {
     WidthLimitedContent
-  }
+  },
+  methods: {
+    getResponsiveStyle() {
+      return `margin-top: ${getTopMarginOfSection(this.appWidth, this.appHeight, 0.4)}px;`
+    },
+  },
 }
 </script>
 
 
 <style scoped lang="less">
 .track-info {
-  margin-top: 30px;
   text-align: center;
   font-family: sans-serif;
   font-weight: 300;
