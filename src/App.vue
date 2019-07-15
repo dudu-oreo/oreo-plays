@@ -3,6 +3,7 @@
     <TopBar />
     <PolygonDisk />
     <TrackInfo title="Wake Me Up When September Ends" artist="直火帮 Straight Fire Gang" />
+    <PlayCtrlBar />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import PolygonDisk from './components/PolygonDisk/index.vue'
 import TopBar from './components/TopBar/index.vue'
 import TrackInfo from './components/TrackInfo/index.vue'
+import PlayCtrlBar from './components/PlayCtrlBar/index.vue'
 
 export default {
   name: 'app',
@@ -17,6 +19,7 @@ export default {
     PolygonDisk,
     TopBar,
     TrackInfo,
+    PlayCtrlBar,
   },
 }
 </script>
