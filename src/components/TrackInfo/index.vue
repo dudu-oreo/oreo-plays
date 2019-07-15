@@ -47,11 +47,11 @@ export default {
   margin-top: 30px;
   text-align: center;
   font-family: sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .title-text {
-  color: #d1879c;
+  color: #c08a8e;
   font-size: 18px;
 }
 

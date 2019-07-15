@@ -24,6 +24,7 @@ export default {
 @import './style-vars.less';
 
 .top-bar {
+  position: relative;
   height: @bar-height;
 }
 </style>

@@ -27,7 +27,7 @@ export default {
 <style lang="less">
 #app {
   max-width: 540px;
-  height: 100vh;
+  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
