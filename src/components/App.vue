@@ -32,9 +32,11 @@ export default {
     ...mapActions('trackInfo', [ 'updateTrackInfo' ])
   },
   mounted() {
-    fetchStatus().then(({ trackInfo }) => {
-      this.updateTrackInfo(trackInfo)
-    })
+    setInterval(() => {
+      fetchStatus().then(({ trackInfo }) => {
+        this.updateTrackInfo(trackInfo)
+      })
+    }, 1000)
   },
 }
 </script>
