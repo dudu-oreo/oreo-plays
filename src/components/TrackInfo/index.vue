@@ -23,8 +23,6 @@
 <script>
 import { mapState } from 'vuex'
 
-import { getTopMarginOfSection } from '../../utils/responsive'
-
 import WidthLimitedContent from './WidthLimitedContent'
 
 export default {
@@ -40,15 +38,15 @@ export default {
     },
   },
   computed: mapState({
-    appWidth: state => state.responsiveUI.appWidth,
-    appHeight: state => state.responsiveUI.appHeight,
+    appContentHeight: state => state.responsive.appContentHeight,
+    appHeight: state => state.responsive.appHeight,
   }),
   components: {
     WidthLimitedContent
   },
   methods: {
     getResponsiveStyle() {
-      return `margin-top: ${getTopMarginOfSection(this.appWidth, this.appHeight, 0.4)}px;`
+      return `margin-top: ${(this.appHeight - this.appContentHeight) * 0.4}px;`
     },
   },
 }

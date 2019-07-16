@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-import './index.less'
+import './styles/index.less'
 
 import App from './components/App.vue'
 

@@ -10,8 +10,6 @@
 <script>
 import { mapState } from 'vuex'
 
-import { getTopMarginOfSection } from '../../utils/responsive'
-
 import SwitchSongBtn from './SwitchSongBtn'
 import LoopModeBtn from './LoopModeBtn'
 
@@ -22,12 +20,12 @@ export default {
     LoopModeBtn,
   },
   computed: mapState({
-    appWidth: state => state.responsiveUI.appWidth,
-    appHeight: state => state.responsiveUI.appHeight,
+    appHeight: state => state.responsive.appHeight,
+    appContentHeight: state => state.responsive.appContentHeight,
   }),
   methods: {
     getResponsiveStyle() {
-      return `margin-top: ${getTopMarginOfSection(this.appWidth, this.appHeight, 0.2)}px;`
+      return `margin-top: ${(this.appHeight - this.appContentHeight) * 0.2}px;`
     },
   }
 }

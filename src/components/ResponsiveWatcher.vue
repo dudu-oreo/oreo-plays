@@ -15,13 +15,17 @@ export default {
     window.addEventListener('resize', this.measureAppSize)
   },
   methods: {
-    ...mapActions('responsiveUI', [ 'getResponsiveReady' ]),
+    ...mapActions('responsive', [ 'getResponsiveReady' ]),
     measureAppSize() {
-      const $appEl = this.$el.parentNode
-      const appElRect = $appEl.getBoundingClientRect()
-      const appWidth = appElRect.width
       const appHeight = window.innerHeight
-      this.getResponsiveReady({ width: appWidth, height: appHeight })
+      const $appEl = this.$el.parentNode
+      const $sectionsInsideApp = $appEl.childNodes
+      let appContentHeight = 0
+      for (let i = 0; i < $sectionsInsideApp.length; i++) {
+        const sectionRect = $sectionsInsideApp[i].getBoundingClientRect()
+        appContentHeight += sectionRect.height
+      }
+      this.getResponsiveReady({ appHeight, appContentHeight })
     },
   },
 }
