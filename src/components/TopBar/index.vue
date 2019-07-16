@@ -1,20 +1,20 @@
 <template>
   <div class="top-bar">
     <ProgressDisp />
-    <VolumnDisp />
+    <VolumeDisp />
   </div>
 </template>
 
 
 <script>
 import ProgressDisp from './ProgressDisp'
-import VolumnDisp from './VolumnDisp'
+import VolumeDisp from './VolumeDisp'
 
 export default {
   name: 'TopBar',
   components: {
     ProgressDisp,
-    VolumnDisp,
+    VolumeDisp,
   }
 }
 </script>

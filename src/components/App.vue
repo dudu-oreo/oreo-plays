@@ -9,6 +9,10 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
+import { fetchStatus } from '../requests/status'
+
 import PolygonDisk from './PolygonDisk/index.vue'
 import TopBar from './TopBar/index.vue'
 import TrackInfo from './TrackInfo/index.vue'
@@ -23,6 +27,14 @@ export default {
     TrackInfo,
     PlayCtrlBar,
     ResponsiveWatcher,
+  },
+  methods: {
+    ...mapActions('trackInfo', [ 'updateTrackInfo' ])
+  },
+  mounted() {
+    fetchStatus().then(({ trackInfo }) => {
+      this.updateTrackInfo(trackInfo)
+    })
   },
 }
 </script>

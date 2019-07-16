@@ -1,5 +1,5 @@
 <template>
-  <div class="volumn-disp">
+  <div class="volume-disp">
     <svg
       viewBox="0 0 59 33"
       width="33"
@@ -18,15 +18,15 @@
 
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  name: 'VolumnDisp',
-  data: function() {
-    return {
-      volumn: 0.2
-    }
-  },
+  name: 'VolumeDisp',
   computed: {
-    muted: function() { return this.volumn < 0.01 }
+    ...mapState({
+      volume: state => state.trackInfo.volume,
+    }),
+    muted: function() { return this.volume === 0 },
   },
   methods: {
     getVolStepFill: function(step) {
@@ -35,7 +35,7 @@ export default {
         : (
           step === 0
           ? '#e2e2e2'
-          : this.volumn >= (step + 1) / 7 ? '#e2e2e2' : '#555'
+          : this.volume >= (step + 1) / 7 ? '#e2e2e2' : '#555'
         )
     }
   }
@@ -44,7 +44,7 @@ export default {
 
 
 <style scoped lang="less">
-.volumn-disp {
+.volume-disp {
   padding: 15px 9px;
   margin: 9px 13px;
 }

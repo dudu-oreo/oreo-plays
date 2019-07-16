@@ -17,6 +17,7 @@
       <use href="#outerPolygon" xlink:href="#outerPolygon" fill="#555" />
       <ProgressFan />
       <DiskCover />
+      <PauseMask v-if="paused" />
     </svg>
   </div>
 </template>
@@ -31,6 +32,7 @@ import {
 } from './constants'
 import ProgressFan from './ProgressFan'
 import DiskCover from './DiskCover'
+import PauseMask from './PauseMask'
 
 export default {
   name: 'DiskPolygon',
@@ -42,6 +44,7 @@ export default {
   computed: mapState({
     appHeight: state => state.responsive.appHeight,
     appContentHeight: state => state.responsive.appContentHeight,
+    paused: state => state.trackInfo.paused
   }),
   methods: {
     getResponsiveStyle() {
@@ -69,6 +72,7 @@ export default {
   components: {
     ProgressFan,
     DiskCover,
+    PauseMask,
   }
 }
 </script>

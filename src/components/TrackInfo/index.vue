@@ -27,19 +27,11 @@ import WidthLimitedContent from './WidthLimitedContent'
 
 export default {
   name: 'TrackInfo',
-  props: {
-    title: {
-      type: String,
-      default: '未知曲目',
-    },
-    artist: {
-      type: String,
-      default: '未知艺术家',
-    },
-  },
   computed: mapState({
     appContentHeight: state => state.responsive.appContentHeight,
     appHeight: state => state.responsive.appHeight,
+    title: state => state.trackInfo.title,
+    artist: state => state.trackInfo.artist,
   }),
   components: {
     WidthLimitedContent

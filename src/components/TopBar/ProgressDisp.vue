@@ -1,14 +1,26 @@
 <template>
   <div class="progress-disp">
-    <span class="time-elapsed">1:35</span>
-    <span class="time-total">4:29</span>
+    <span class="time-elapsed">{{ timeElapsed }}</span>
+    <span class="time-total">{{ timeTotal }}</span>
   </div>
 </template>
 
 
 <script>
+import { mapState } from 'vuex'
+
+const formatTime = seconds => {
+  const minute = Math.floor(seconds / 60)
+  const second = seconds % 60
+  return `${minute}:${second < 10 ? '0' : ''}${second}`
+}
+
 export default {
   name: 'TopBar',
+  computed: mapState({
+    timeElapsed: state => formatTime(state.trackInfo.time),
+    timeTotal: state => formatTime(state.trackInfo.length),
+  }),
 }
 </script>
 
