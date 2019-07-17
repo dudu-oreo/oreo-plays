@@ -1,8 +1,8 @@
 <template>
   <div class="play-ctrl-bar" :style="getResponsiveStyle(0.25)">
-    <SwitchSongBtn dir="prev" />
+    <GoToItemBtn dir="prev" />
     <LoopModeBtn mode="shuffle" />
-    <SwitchSongBtn dir="next" />
+    <GoToItemBtn dir="next" />
   </div>
 </template>
 
@@ -10,13 +10,13 @@
 <script>
 import { mapState } from 'vuex'
 
-import SwitchSongBtn from './SwitchSongBtn'
+import GoToItemBtn from './GoToItemBtn'
 import LoopModeBtn from './LoopModeBtn'
 
 export default {
   name: 'PlayCtrlBar',
   components: {
-    SwitchSongBtn,
+    GoToItemBtn,
     LoopModeBtn,
   },
   computed: mapState({

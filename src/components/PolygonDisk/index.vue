@@ -3,6 +3,7 @@
     <svg
       :viewBox="`0 0 ${SVG_SIZE} ${SVG_SIZE}`"
       width="100%"
+      @click="handleTogglePause"
     >
       <defs>
         <polygon id="innerPolygon" :points="genInnerPolygonStr()" />
@@ -24,7 +25,9 @@
 
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
+
+import { togglePause } from '../../requests/status'
 
 import {
   SVG_SIZE, SVG_CENTER,
@@ -47,6 +50,7 @@ export default {
     paused: state => state.trackInfo.paused
   }),
   methods: {
+    ...mapActions('trackInfo', [ 'updateTrackInfo' ]),
     getResponsiveStyle() {
       return `margin-top: ${(this.appHeight - this.appContentHeight) * 0.23}px;`
     },
@@ -67,6 +71,11 @@ export default {
     },
     genOuterPolygonStr: function() {
       return this.genPolygonStr(POLYGON_OUTER_R)
+    },
+    handleTogglePause() {
+      togglePause().then(({ trackInfo }) => {
+        this.updateTrackInfo(trackInfo)
+      })
     },
   },
   components: {

@@ -1,14 +1,20 @@
 import axios from 'axios'
 
-const MAX_VOLUME = 512
+const MAX_VOLUME = 320
 
-const getStatus = () => (
+export const fetchStatus = params => (
   process.env.NODE_ENV === 'development'
-  ? Promise.resolve(status)
-  : axios.get('/requests/status.json').then(({ data }) => data)
+  ? Promise.resolve(dumpStatusData(status))
+  : axios.get('/requests/status.json', { params })
+    .then(({ data }) => dumpStatusData(data))
 )
 
-export const fetchStatus = () => getStatus().then(data => {
+export const togglePause = () => fetchStatus({ command: 'pl_pause' })
+
+export const toNextItem = () => fetchStatus({ command: 'pl_next' })
+export const toPrevItem = () => fetchStatus({ command: 'pl_previous' })
+
+const dumpStatusData = data => {
   const {
     time, length,
     volume,
@@ -23,7 +29,7 @@ export const fetchStatus = () => getStatus().then(data => {
       paused: state !== 'playing'
     },
   }
-})
+}
 
 const status = {
   "time": 109,
