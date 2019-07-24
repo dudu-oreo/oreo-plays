@@ -1,29 +1,34 @@
 # oreo-plays
 
-## Project setup
-```
-yarn install
-```
+This is a front-end project for VLC Web Controller using Vue.js.
+All design inspiration came from my cat Oreo (mostly colors)❤️
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+## screenshot
+![](screenshot.png)
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## Features
+- [x] Responsive, consistently pretty on PC/tablet/phone
+- [x] Pause, Play
+- [x] To next/previous item
+- [ ] Volume adjustment
+- [ ] Loop mode
+- [ ] Album cover
 
-### Run your tests
-```
-yarn run test
-```
+## Usage
 
-### Lints and fixes files
+#### install
+`yarn install`
+#### develop
+`yarn run serve`
+#### build
+1. create a file named `custon-config.js` under `/`
+2. export the path you'd prefer for emitting the files:
+``` js
+module.exports = {
+  OUTPUT_DIR: '/a/specific/path'
+}
 ```
-yarn run lint
-```
+3. run `yarn run build`
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### use emitted files as the web interface for VLC
+see [here](https://www.howtogeek.com/117261/how-to-activate-vlcs-web-interface-control-vlc-from-a-browser-use-any-smartphone-as-a-remote/)
